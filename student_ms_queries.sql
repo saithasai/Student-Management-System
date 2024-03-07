@@ -49,7 +49,23 @@ case when scity = "Kolkata" then "Homestudent"
 	else "Distancestudent"
     end as Remarks from student;
 
-#12) Display batchid, coursename, batch start date, batch end date for all batches. 
+#12)Display count of students having no contact information. (Either email or phone). 
+select count(*) from student
+where semail is null or sphone is null;
+
+#13) Display coursename having above average fees. 
+select coursename from course 
+where (select avg(coursefees) from course)<coursefees;
+
+#14) Display coursename where fees are less than the average fees of its category. 
+select coursename from course 
+where (select avg(coursefees) from course)>coursefees;
+
+#15) Display student name having duplicate email ids. 
+select sname from student
+where semail not like "%@%" and semail not like ".com%" or semail is null ;
+
+#16) Display batchid, coursename, batch start date, batch end date for all batches. 
 #(batch end  date=batch start date +course duration). 
 select b.batchid,c.coursename,date(b.bsdate) as batch_start_date,date(b.bsdate+interval c.courseduration day) as batch_end_date from batch b
 join course c on c.courseid=b.courseid
@@ -58,37 +74,25 @@ select b.batchid,c.coursename,b.bsdate as batch_start_date,b.bsdate+interval c.c
 join course c on c.courseid=b.courseid
 group by b.batchid,c.coursename;
 
-#13)Display all batchid having a difference of 10 hours and less between its starting and ending date
+#17)Display all batchid having a difference of 10 hours and less between its starting and ending date
 select b.batchid from batch b
 join course c on c.courseid=b.courseid
 where courseduration<10;
 
-#14)Display student who enrolled for the batch after its start date.
+#18)Display student who enrolled for the batch after its start date.
 select sname,e.edate,date(b.bsdate) from student s
 join enrollment e on e.sid=s.sid
 join batch b on b.batchid=e.batchid
 where e.edate>date(b.bsdate);
 
-#15) Display the studentid, studentname , totalfees for all student. 
+#19) Display the studentid, studentname , totalfees for all student. 
 select s.sid,s.sname,sum(c.coursefees) as totalfees from course c
 join batch b on b.courseid=c.courseid
 join enrollment e on e.batchid=b.batchid
 join student s on s.sid=e.sid
 group by s.sid,s.sname;
 
-#16)Display count of students having no contact information. (Either email or phone). 
-select count(*) from student
-where semail is null or sphone is null;
-
-#17) Display coursename having above average fees. 
-select coursename from course 
-where (select avg(coursefees) from course)<coursefees;
-
-#18) Display coursename where fees are less than the average fees of its category. 
-select coursename from course 
-where (select avg(coursefees) from course)>coursefees;
-
-#19) Display the coursename having the highest enrollment. 
+#20) Display the coursename having the highest enrollment. 
 select coursename,count(*) as total from course c 
 join batch b on b.courseid=c.courseid
 join enrollment e on e.batchid=b.batchid
@@ -96,10 +100,6 @@ join student s on s.sid=e.sid
 group by coursename
 order by total desc
 limit 1;
-
-#20) Display student name having duplicate email ids. 
-select sname from student
-where semail not like "%@%" and semail not like ".com%" or semail is null ;
 
 #21) Display student name having similar name but different email ids. 
 select distinct s.sname from student s
