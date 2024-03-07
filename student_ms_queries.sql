@@ -63,36 +63,32 @@ select b.batchid from batch b
 join course c on c.courseid=b.courseid
 where courseduration<10;
 
-#14) Display all batches having similar start date and strength. 
-select batchid,date(bsdate),bstrength,count(*) from batch b1
-group by date(bsdate),bstrength
-having count(*)>1;
-
-#15Display student who enrolled for the batch after its start date.
+#14Display student who enrolled for the batch after its start date.
 select sname,e.edate,date(b.bsdate) from student s
 join enrollment e on e.sid=s.sid
 join batch b on b.batchid=e.batchid
 where e.edate>date(b.bsdate);
 
-#16) Display the studentid, studentname , totalfees for all student. 
+#15) Display the studentid, studentname , totalfees for all student. 
 select s.sid,s.sname,sum(c.coursefees) as totalfees from course c
 join batch b on b.courseid=c.courseid
 join enrollment e on e.batchid=b.batchid
 join student s on s.sid=e.sid
 group by s.sid,s.sname;
 
-#17Display count of students having no contact information. (Either email or phone). 
+#16)Display count of students having no contact information. (Either email or phone). 
 select count(*) from student
 where semail is null or sphone is null;
 
-#18) Display coursename having above average fees. 
+#17) Display coursename having above average fees. 
 select coursename from course 
 where (select avg(coursefees) from course)<coursefees;
 
-#19) Display coursename where fees are less than the average fees of its category. 
+#18) Display coursename where fees are less than the average fees of its category. 
 select coursename from course 
 where (select avg(coursefees) from course)>coursefees;
-#20) Display the coursename having the highest enrollment. 
+
+#19) Display the coursename having the highest enrollment. 
 select coursename,count(*) as total from course c 
 join batch b on b.courseid=c.courseid
 join enrollment e on e.batchid=b.batchid
@@ -101,24 +97,26 @@ group by coursename
 order by total desc
 limit 1;
 
-#21) Display student name having duplicate email ids. 
+#20) Display student name having duplicate email ids. 
 select sname from student
 where semail not like "%@%" and semail not like ".com%" or semail is null ;
 
-#22) Display student name having similar name but different email ids. 
-select sname,semail from student s
-order by sname;
+#21) Display student name having similar name but different email ids. 
+select distinct s.sname from student s
+join student st on s.sname=st.sname and s.semail<>st.semail
 
-#23)Display the course name fetching the 2nd highest revenue. 
-select coursename,sum(c.coursefees)as total from course c 
+#22)Display the course name fetching the 2nd highest revenue. 
+select * from (select coursename,sum(c.coursefees)as total from course c 
 join batch b on b.courseid=c.courseid
 join enrollment e on e.batchid=b.batchid
 join student s on s.sid=e.sid
 group by coursename
 order by total desc
-limit 2;
+limit 2) as T
+order by T.total asc
+limit 1;
 
-#24) Which among the following have the highest enrollment? (Graduate,Undergraduate or  postgraduate).
+#23) Which among the following have the highest enrollment? (Graduate,Undergraduate or  postgraduate).
 select squal as Qualification,count(*) as HighestEnrollnmet from course c 
 join batch b on b.courseid=c.courseid
 join enrollment e on e.batchid=b.batchid
@@ -127,7 +125,7 @@ group by Qualification
 order by HighestEnrollnmet desc
 limit 1;
 
-#25) Display student name, age[Alias] , coursename, batchid, batch_start_ date, batch_ end _date 
+#24) Display student name, age[Alias] , coursename, batchid, batch_start_ date, batch_ end _date 
 #and enrollment date in the format 1st of Jan , 2012 .
 select s.sname,timestampdiff(year,s.sdob,curdate()) as age,c.coursename,b.batchid,date(b.bsdate) as batch_start_date,date(bsdate+interval c.courseduration day) as batch_end_date from course c
 join batch b on b.courseid=c.courseid
