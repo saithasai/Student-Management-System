@@ -14,18 +14,17 @@
 11) Display student whose city is Kolkata as “HomeStudent ” and others as “DistanceStudent”  under a column “Remarks”.
 12) Display batchid, coursename, batch start date, batch end date for all batches.
 13) Display all batchid having a difference of 10 hours and less between its starting and ending date
-14) Display all batches having similar start date and strength.
-15) Display student who enrolled for the batch after its start date.
-16) Display the studentid, studentname , totalfees for all student.
-17) Display count of students having no contact information. (Either email or phone).
-18) Display coursename having above average fees.
-19) Display coursename where fees are less than the average fees of its category.
-20) Display the coursename having the highest enrollment.
-21) Display student name having duplicate email ids.
-22) Display student name having similar name but different email ids.
-23) Display the course name fetching the 2nd highest revenue.
-24) Which among the following have the highest enrollment? (Graduate,Undergraduate or  postgraduate).
-25) Display student name, age[Alias] , coursename, batchid, batch_start_ date, batch_ end _date 
+14) Display student who enrolled for the batch after its start date.
+15) Display the studentid, studentname , totalfees for all student.
+16) Display count of students having no contact information. (Either email or phone).
+17) Display coursename having above average fees.
+18) Display coursename where fees are less than the average fees of its category.
+19) Display the coursename having the highest enrollment.
+20) Display student name having duplicate email ids.
+21) Display student name having similar name but different email ids.
+22) Display the course name fetching the 2nd highest revenue.
+23) Which among the following have the highest enrollment? (Graduate,Undergraduate or  postgraduate).
+24) Display student name, age[Alias] , coursename, batchid, batch_start_ date, batch_ end _date 
 
 
 
