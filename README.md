@@ -1,4 +1,16 @@
-# Student-Management-System
+# Student-Management-System    
+
+Student-Management-System deals with student details,course details,batch details etc. Here, the dataset made, consists of details of students and various courses joined by them.   
+1) Student details consists of sid,sname,sdob,scity,squal,semail,sphone
+2) Course details consists of courseid,coursename,coursecategory,coursefees,courseduration,batch_end_date
+3) Enrollment details consists of batchid,sid,edate,weekday,dayname
+4) Batch details consists of batchid,bsdate,datetime,bstrength,courseid
+
+### Objective
+### Approach Used:
+Exploratory Data Analysis (EDA):
+
+Exploratory data analysis is done to answer the following questions :
 
 1) Display all undergraduate student whose name starts with ‘S’ and is of length between 5 and 20.
 2) Display the student who are senior citizen (>=60).
