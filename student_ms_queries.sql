@@ -63,7 +63,7 @@ select b.batchid from batch b
 join course c on c.courseid=b.courseid
 where courseduration<10;
 
-#14Display student who enrolled for the batch after its start date.
+#14)Display student who enrolled for the batch after its start date.
 select sname,e.edate,date(b.bsdate) from student s
 join enrollment e on e.sid=s.sid
 join batch b on b.batchid=e.batchid
