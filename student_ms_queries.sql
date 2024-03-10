@@ -26,7 +26,7 @@ where semail like "%gmail%";
 
 #7)Display the above record but do not consider invalid email id. 
 select sname,semail from student 
-where semail like "%@gmail%";
+where semail like ".com%" or semail  like "%@%" 
 
 #8)Display the qualification and the total number of students registered based on their  qualifications. 
 #(Alias use “totalStud” for total number of students) 
@@ -117,18 +117,13 @@ order by T.total asc
 limit 1;
 
 #23) Which among the following have the highest enrollment? (Graduate,Undergraduate or  postgraduate).
-select squal as Qualification,count(*) as HighestEnrollnmet from course c 
-join batch b on b.courseid=c.courseid
-join enrollment e on e.batchid=b.batchid
-join student s on s.sid=e.sid
+select squal as Qualification,count(*) as HighestEnrollnmet from student s
+join enrollment e on s.sid=e.sid
 group by Qualification
-order by HighestEnrollnmet desc
-limit 1;
-
+	
 #24) Display student name, age[Alias] , coursename, batchid, batch_start_ date, batch_ end _date 
 #and enrollment date in the format 1st of Jan , 2012 .
 select s.sname,timestampdiff(year,s.sdob,curdate()) as age,c.coursename,b.batchid,date(b.bsdate) as batch_start_date,date(bsdate+interval c.courseduration day) as batch_end_date from course c
 join batch b on b.courseid=c.courseid
 join enrollment e on e.batchid=b.batchid
 join student s on s.sid=e.sid;
-
