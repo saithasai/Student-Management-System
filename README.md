@@ -43,3 +43,16 @@ Exploratory data analysis is done to answer the following questions :
 22) Display the course name fetching the 2nd highest revenue.
 23) Which among the following have the highest enrollment? (Graduate,Undergraduate or  postgraduate).
 24) Display student name,age[Alias],coursename,batchid,batch_start_ date,batch_ end _date 
+
+### Findings
+- There are 20 students including four senior citizens are enrolled for the course
+- Six students are having invalid phone numbers, 3 of them having invalid email id.Need to recheck it by them
+- Total email id is 20, in which 3 are invalid and 4 having yahoo account and 1 with rediff account
+- The students enrolled consist of 9 graduates, 7 postgraduates,4 undergraduates
+- Three of them are homestudents(from kolkata) and 17 are distancestudent
+- Seven students who enrolled for the batch after its start date.
+- Hira is the one who registered max courses (7) while lisa and gopichand with least (1)
+- Two students with no contact information
+- Compmat and Biomaths are the courses with high fees but Compmat has highest enrollments(20) and photo with least(4) enrollments
+- Eventhough Compmat has highest enrollments,highest revenue is earned from biomaths course
+
