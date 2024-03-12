@@ -10,9 +10,12 @@ Student-Management-System deals with student details,course details,batch detail
 To meet a solution for storing and managing student's records accurately by education institutes during enrollment of specific courses they choose.  
 Different reports anad queries can be generated based on the data related to students and courses
 
-### Approach Used:
-Exploratory Data Analysis (EDA):
+### Tools used:
+MySQL Workbench 
 
+### Approach Used:
+
+Exploratory Data Analysis (EDA): - Data cleaning,Data analysing,Data visualising in tabular form
 Exploratory data analysis is done to answer the following questions :
 
 1) Display all undergraduate student whose name starts with ‘S’ and is of length between 5 and 20.
