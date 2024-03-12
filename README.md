@@ -8,15 +8,15 @@ Student-Management-System deals with student details,course details,batch detail
 
 ### Objective
 To meet a solution for storing and managing student's records accurately by education institutes during enrollment of specific courses they choose.  
-Different reports anad queries can be generated based on the data related to students and courses
+Different reports and queries can be generated based on the data related to students and courses
 
 ### Tools used:
 MySQL Workbench 
 
 ### Approach Used:
 
-Exploratory Data Analysis (EDA): - Data cleaning,Data analysing,Data visualising in tabular form
-Exploratory data analysis is done to answer the following questions :
+Exploratory Data Analysis (EDA): - Data cleaning,Data analysing,Data visualising in tabular form    
+Exploratory data analysis is done to answer the following questions that may arise during report generation :
 
 1) Display all undergraduate student whose name starts with ‘S’ and is of length between 5 and 20.
 2) Display the student who are senior citizen (>=60).
@@ -34,9 +34,6 @@ Exploratory data analysis is done to answer the following questions :
 13) Display coursename having above average fees.
 14) Display coursename where fees are less than the average fees of its category.
 15) Display student name having duplicate email ids.
-
-### Using Joins
-    
 16) Display batchid, coursename, batch start date, batch end date for all batches. 
 17) Display all batchid having a difference of 10 hours and less between its starting and ending date
 18) Display student who enrolled for the batch after its start date.
