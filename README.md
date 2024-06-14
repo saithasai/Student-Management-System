@@ -1,10 +1,11 @@
 # Student-Management-System (SQL project)    
+<img src="https://5.imimg.com/data5/SELLER/Default/2023/1/KM/HQ/NF/7723911/student-management-software.jpg" width="1000" height="600" />   
 
 Student-Management-System deals with student details,course details,batch details etc. Here, the dataset made, consists of details of students and various courses joined by them.   
-1) Student details consists of sid,sname,sdob,scity,squal,semail,sphone
-2) Course details consists of courseid,coursename,coursecategory,coursefees,courseduration,batch_end_date
-3) Enrollment details consists of batchid,sid,edate,weekday,dayname
-4) Batch details consists of batchid,bsdate,datetime,bstrength,courseid
+1) Student details consists of student id as sid,student name as sname,student DOB as sdob,student city as scity,dtudent qualification as squal,student email as semail,student contact number as sphone
+2) Course details consists of course id as courseid,course name as coursename,course category as coursecategory,course fees as coursefees,course duration as courseduration,course end date batchwise  as batch_end_date
+3) Enrollment details consists of batchid,sid,enrollment date as edate,weekday,dayname
+4) Batch details consists of batchid,course start date batchwise as bsdate,datetime,batch strength as bstrength,courseid
 
 ### Objective
 To meet a solution for storing and managing student's records accurately by education institutes during enrollment of specific courses they choose.  
